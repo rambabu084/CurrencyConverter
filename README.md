@@ -23,7 +23,7 @@ Please explore package.json and project to get the full understanding.
 
 1) Download or clone the project
        command to clone
-       'git clone https://github.com/programworks11/CurrencyConverter.git'     
+       'git clone https://github.com/rambabu084/CurrencyConverter.git'     
 2) Install - run 'npm install' command in root directory (same directory with package.json)
 3) Run command 'npm start'
 4) Open browser and give http://127.0.0.1:8080 
