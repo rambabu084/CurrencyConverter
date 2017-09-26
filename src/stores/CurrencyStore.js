@@ -1,4 +1,5 @@
 import { runInAction, computed, observable, action } from "mobx";
+import axios from 'axios';
 import _ from 'lodash';
 
 const FIXER_API_BASE_URL = "http://api.fixer.io/latest?base=EUR";
@@ -13,7 +14,7 @@ export default class CurrencyStore {
   @observable showDisclaimer=false;
   @observable loading= false;
 
-  @action async loadCurrencies() {
+  /*@action async loadCurrencies() {
     this.loading = true;
     // fetch data from fixer api and get the currencies
     try {
@@ -27,6 +28,19 @@ export default class CurrencyStore {
     } catch (e) {
       console.log('there was an error while fetching currency data from fixer API' + e);
     }
+  }*/
+
+  @action loadCurrencies() {
+    this.loading = true;
+      axios.get(FIXER_API_BASE_URL)
+        .then(response => {
+          response.data.rates['EUR'] =1;
+          this.allCurrencies = response.data.rates;
+          this.loading = false;
+        })
+        .catch(() => {
+          console.log("there was an error while fetching currency data from fixer API");
+        });
   }
 
   /*
