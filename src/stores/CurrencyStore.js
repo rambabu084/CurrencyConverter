@@ -1,4 +1,4 @@
-import { runInAction, computed, observable, action } from "mobx";
+import { computed, observable, action } from "mobx";
 import axios from 'axios';
 import _ from 'lodash';
 
@@ -13,22 +13,6 @@ export default class CurrencyStore {
   @observable outputCurrencyValue='';
   @observable showDisclaimer=false;
   @observable loading= false;
-
-  /*@action async loadCurrencies() {
-    this.loading = true;
-    // fetch data from fixer api and get the currencies
-    try {
-      const response = await fetch(FIXER_API_BASE_URL);
-      const fixerResponse = await response.json();
-      runInAction(() => {
-        fixerResponse.rates['EUR'] = 1;
-        this.allCurrencies = fixerResponse.rates;
-        this.loading = false;
-      });
-    } catch (e) {
-      console.log('there was an error while fetching currency data from fixer API' + e);
-    }
-  }*/
 
   @action loadCurrencies() {
     this.loading = true;
