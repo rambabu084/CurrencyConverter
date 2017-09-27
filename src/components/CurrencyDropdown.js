@@ -29,7 +29,7 @@ export default class CurrencyDropDown extends Component
               <div className="slds-form-element__control">
                 <div className="slds-select_container">
                   <select className="slds-select slds-theme--shade currency-dropdown-width" value={this.props.initValue} 
-                  onChange={this.props.selectCurrency} id="select-01">{currencyList.map(this.renderCurrencies)}</select>
+                  onChange={this.props.selectCurrency} id="currDropdown">{currencyList.map(this.renderCurrencies)}</select>
                 </div>
               </div>
             </div>);
